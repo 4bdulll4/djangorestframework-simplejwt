@@ -91,6 +91,13 @@ class TokenRefreshSlidingView(TokenViewBase):
     """
 
     _serializer_class = api_settings.SLIDING_TOKEN_REFRESH_SERIALIZER
+    authentication_classes = (api_settings.REFRESH_SLIDING_TOKEN_AUTHENTICATION_CLASS, )
+    permission_classes = api_settings.REFRESH_SLIDING_TOKEN_PERMISSION_CLASSES
+
+    def get_serializer_context(self):
+        return {
+            **super().get_serializer_context(), **{'auth': self.request.auth}
+        }
 
 
 token_refresh_sliding = TokenRefreshSlidingView.as_view()

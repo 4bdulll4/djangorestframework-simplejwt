@@ -44,6 +44,8 @@ DEFAULTS = {
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
     "CHECK_REVOKE_TOKEN": False,
     "REVOKE_TOKEN_CLAIM": "hash_password",
+    "REFRESH_SLIDING_TOKEN_AUTHENTICATION_CLASS": "rest_framework_simplejwt.authentication.JWTAuthentication",
+    "REFRESH_SLIDING_TOKEN_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",)
 }
 
 IMPORT_STRINGS = (
@@ -51,6 +53,8 @@ IMPORT_STRINGS = (
     "JSON_ENCODER",
     "TOKEN_USER_CLASS",
     "USER_AUTHENTICATION_RULE",
+    "REFRESH_SLIDING_TOKEN_AUTHENTICATION_CLASS",
+    "REFRESH_SLIDING_TOKEN_PERMISSION_CLASSES"
 )
 
 REMOVED_SETTINGS = (
